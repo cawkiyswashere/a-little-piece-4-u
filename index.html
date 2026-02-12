@@ -1,58 +1,136 @@
-<script>
-  let scale = 1;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 💘</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
 
-  function noClick() {
-    scale += 0.25;
-    document.getElementById("yesBtn").style.transform = `scale(${scale})`;
-  }
+    .card {
+      background: #1a1a1a;
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 77, 109, 0.35);
+      max-width: 420px;
+      z-index: 2;
+    }
 
-  function yesClick() {
-    document.body.innerHTML = `
-      <div style="max-width:600px; padding:40px; text-align:center;">
-        <h1 style="color:#ff4d6d;">You said yes… 💕</h1>
+    h1 { color: #ff4d6d; }
 
-        <iframe 
-          style="border-radius:12px; margin:20px 0;"
-          src="https://open.spotify.com/embed/track/4joiWvli4qJVEW6qZV2i2J?si=7f760069c1af407e"
-          width="100%" 
-          height="80" 
-          frameborder="0" 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-        </iframe>
+    button {
+      margin: 12px;
+      padding: 14px 26px;
+      border: none;
+      border-radius: 999px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
 
-        <p style="line-height:1.8; font-size:18px;">
-          And honestly, that means more to me than you’ll ever know.
-          <br><br>
-          Loving you feels easy, natural, like something my heart
-          has been practicing for a long time.
-          You’re my calm in the chaos, my safe place,
-          my favorite notification, my best plot twist.
-          <br><br>
-          I don’t promise perfection, but I promise effort.
-          I promise choosing you, even on the days when life feels loud.
-          I promise laughs, late talks, small moments,
-          and love that grows quietly but stays strong.
-          <br><br>
-          So yeah… this is me, choosing you.
-          Today, tomorrow, and every version of the future.
-        </p>
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
 
-        <h2 style="color:#ff4d6d;">Happy Valentine’s Day, my favorite person ❤️</h2>
-      </div>
-    `;
-    startHearts();
-  }
+    .no {
+      background: #444;
+      color: white;
+    }
 
-  function startHearts() {
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "💗";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-      document.body.appendChild(heart);
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear forwards;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-      setTimeout(() => heart.remove(), 5000);
-    }, 300);
-  }
-</script>
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Happy Valentine 💌</h1>
+    <p>
+      Out of all the random moments in my life,  
+      somehow you became my favorite one.
+    </p>
+    <h3>Will you be my Valentine? 💖</h3>
+
+    <button class="yes" id="yesBtn" onclick="yesClick()">Yes 💘</button>
+    <button class="no" onclick="noClick()">No</button>
+  </div>
+
+  <script>
+    let scale = 1;
+
+    function noClick() {
+      scale += 0.25;
+      document.getElementById("yesBtn").style.transform = `scale(${scale})`;
+    }
+
+    function yesClick() {
+      document.body.innerHTML = `
+        <div style="max-width:600px; padding:40px; text-align:center;">
+          <h1 style="color:#ff4d6d;">You said yes… 💕</h1>
+
+          <iframe
+            style="border-radius:12px; margin:20px 0;"
+            src="https://open.spotify.com/embed/track/4joiW1i4qJVEWGqZV2i2J3"
+            width="100%"
+            height="80"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+          </iframe>
+
+          <p style="line-height:1.8; font-size:18px;">
+            Loving you feels easy and real.
+            You’re my calm, my favorite place to come home to,
+            and the best part of my every day.
+            <br><br>
+            I don’t promise perfection,
+            but I promise choosing you.
+            Today, tomorrow,
+            and every version of the future.
+          </p>
+
+          <h2 style="color:#ff4d6d;">Happy Valentine’s Day ❤️</h2>
+        </div>
+      `;
+      startHearts();
+    }
+
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
