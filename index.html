@@ -3,37 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <title>For You 💘</title>
+
+  <!-- WAJIB BUAT MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #0f0f0f;
       color: white;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden;
       text-align: center;
+      padding: 16px;
     }
 
     .card {
       background: #1a1a1a;
-      padding: 32px;
+      padding: 28px 20px;
       border-radius: 20px;
       box-shadow: 0 0 30px rgba(255, 77, 109, 0.35);
-      max-width: 420px;
+      width: 100%;
+      max-width: 380px;
       z-index: 2;
     }
 
-    h1 { color: #ff4d6d; }
+    h1 {
+      color: #ff4d6d;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
 
     button {
-      margin: 12px;
-      padding: 14px 26px;
+      width: 100%;
+      margin-top: 12px;
+      padding: 14px;
       border: none;
       border-radius: 999px;
-      font-size: 16px;
+      font-size: 1.05rem;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
@@ -65,6 +86,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="card">
     <h1>Happy Valentine 💌</h1>
@@ -72,6 +94,7 @@
       Out of all the random moments in my life,  
       somehow you became my favorite one.
     </p>
+
     <h3>Will you be my Valentine? 💖</h3>
 
     <button class="yes" id="yesBtn" onclick="yesClick()">Yes 💘</button>
@@ -88,11 +111,16 @@
 
     function yesClick() {
       document.body.innerHTML = `
-        <div style="max-width:600px; padding:40px; text-align:center;">
+        <div style="
+          max-width:420px;
+          padding:24px;
+          text-align:center;
+          margin:auto;
+        ">
           <h1 style="color:#ff4d6d;">You said yes… 💕</h1>
 
           <iframe
-            style="border-radius:12px"
+            style="border-radius:12px; margin:16px 0;"
             src="https://open.spotify.com/embed/track/2B4Y9u4ERAFiMo13XPJyGP"
             width="100%"
             height="80"
@@ -100,19 +128,44 @@
             allow="encrypted-media">
           </iframe>
 
-          <p style="line-height:1.8; font-size:18px;">
-            Loving you feels easy and real.
-            You’re my calm, my favorite place to come home to,
-            and the best part of my every day.
-            <br><br>
-            I don’t promise perfection,
-            but I promise choosing you.
-            Today, tomorrow,
-            and every version of the future.
-          </p>
+         <p style="line-height:1.7; font-size:1rem;">
+              Loving you feels like breathing — effortless, natural,
+              something I don’t even have to think about.
+              Somehow, you became my safe place without trying,
+              my favorite notification,
+              and the person I want to tell everything to.
+              <br><br>
+            
+              In a world that moves too fast,
+              you’re the moment that makes me slow down.
+              You feel like home,
+              like comfort,
+              like a quiet kind of happiness I didn’t even know I was looking for.
+              <br><br>
+            
+              I don’t need perfect days,
+              I just need days with you in them.
+              I promise I’ll choose you —
+              on the easy days,
+              on the messy ones,
+              and on the days when nothing makes sense.
+              <br><br>
+            
+              This isn’t just a Valentine thing.
+              This is an everyday thing.
+              You and me,
+              growing,
+              learning,
+              loving —
+              one moment at a time.
+        </p>
+
 
           <h2 style="color:#ff4d6d;">Happy Valentine’s Day ❤️</h2>
-        </div>
+          <p style="font-size:0.9rem; opacity:0.8;">
+          still choosing you. always.
+        </p>
+
       `;
       startHearts();
     }
